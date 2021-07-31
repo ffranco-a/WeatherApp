@@ -37,13 +37,13 @@
     left: 5px;
     top: 5px;
     bottom: 5px;
-    border: 2px outset #b0e5ff40;
+    border: 2px outset #65b4db40;
 
     height: 30px;
     width: 30px;
     border-radius: 999px;
-    font-size: 30px;
-    font-weight: 100;
+    font-size: 1.5rem;
+    font-weight: 900;
     color: #99d9ee80;
 
 
@@ -54,4 +54,8 @@
 .volver:hover {
     background-color: #08496025;
     transition: background-color 0.2s;
+}
+
+.volver:active, .volver:focus{
+    outline: none
 }

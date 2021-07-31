@@ -1,5 +1,5 @@
 .card {
-    margin: 10px;
+    margin: 10px 20px;
     border: 2px outset #b0e5ff40;
     position: relative;
     border-radius: 18px 18px 64px 18px;
@@ -47,6 +47,10 @@
     background-color: #fd000050;
     color: #80252580;
     transition: background-color 0.3s;
+}
+
+.close:active, close:focus{
+    outline: none
 }
 
 .header {

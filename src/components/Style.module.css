@@ -1,21 +1,31 @@
 .body {
+    overflow-y: scroll;
+    overflow-x: hidden;
     width: 100vw;
     height: 100vh;
-    padding: 100px 15% 200px;
+    padding: 100px 10% 100px;
     background-image: url('../img/gong-ty-5AEFIuud6XI-unsplash.jpg');
     background-position: center;
     background-size: cover;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d587ea5;
+    border-radius: 999px;
+    backdrop-filter: blur(5px);
 }
 
 .cards {
+    z-index: 0;
     margin-top: 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -25,4 +35,12 @@
     color: #fffa;
     right: 100px;
     top: 85px;
+}
+
+@media (max-width: 500px) {
+    .body {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+    }
 }

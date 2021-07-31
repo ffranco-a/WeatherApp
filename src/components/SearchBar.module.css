@@ -13,8 +13,8 @@
     height: 30px;
     width: 30px;
     border-radius: 999px;
-    font-size: 30px;
-    font-weight: 100;
+    /* font-size: 30px; */
+    font-weight: 700;
     color: #0d455768;
 
     background-color: transparent;
@@ -24,4 +24,8 @@
 .button:hover {
     background-color: #38a9d233;
     transition: background-color 0.2s;
+}
+
+.button:active, button:focus{
+    outline: none
 }

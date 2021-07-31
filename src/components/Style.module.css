@@ -1,0 +1,28 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    padding: 100px 15% 200px;
+    background-image: url('../img/gong-ty-5AEFIuud6XI-unsplash.jpg');
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.cards {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cards > span {
+    position: absolute;
+    text-align: right;
+    color: #fffa;
+    right: 100px;
+    top: 85px;
+}

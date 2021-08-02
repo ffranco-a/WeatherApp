@@ -12,7 +12,6 @@ export default function Ciudad({city}) {
                     <div className={style.title}>
                         <h1>{city.name}, {city.pais}</h1>
                         <div>Lat {city.latitud}º  |  Lon {city.longitud}º</div>
-                        <img src={`http://openweathermap.org/img/wn/${city.img}@2x.png`} alt={city.weather} />
                     </div>
                     <hr />
                     <div>
@@ -24,6 +23,9 @@ export default function Ciudad({city}) {
                             <div>Nubosidad: {city.clouds}%</div>
                             <div>Humedad: {city.humedad}%</div>
                             <div>Viento: {city.wind} km/h</div>
+                        </div>
+                        <div className={style.containerIcon}>
+                            <img className={style.icon} src={`http://openweathermap.org/img/wn/${city.img}@2x.png`} alt={city.weather} />
                         </div>
                     </div>
             </div>

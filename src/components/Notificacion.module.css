@@ -1,0 +1,30 @@
+.notificacion {
+    z-index: 2;
+    background-color: #839aa822;
+    color: #FFFD;
+    font-weight: bold;
+    position: fixed;
+    top: 6rem;
+    right: 4rem;
+    padding: .3rem .6rem;
+    border-radius: 99px;
+    font-size: 1.1rem;
+    border-radius: 99px;
+    backdrop-filter: blur(15px);
+    border: 2px outset #FFF2;
+}
+
+@media (max-width: 500px) {
+    .notificacion {
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        text-align: center;
+        width: max-content;
+        margin:auto;
+        top: 4.9rem;
+        right: initial;
+        padding: .3rem .6rem;
+    }
+}

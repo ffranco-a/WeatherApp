@@ -5,21 +5,30 @@ import style from '../components/Style.module.css';
 import { Route } from 'react-router-dom';
 import About from '../components/About.jsx';
 import Ciudad from '../components/Ciudad.jsx';
+import Notificacion from '../components/Notificacion.jsx';
+
 
 function App() {
   const [cities, setCities] = useState([]);
+  const [notificacion, setNotificacion] = useState({mensaje: "Agregá una ciudad ↑", mostrar: true});
+
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
+    setNotificacion({...notificacion, mostrar: false}); // ← Solo una manera de limpiar la pantalla una vez que le usuarie interactue... una vez que aprenda a cronometrar la notifiación para que desaparezca automáticamente según el mensaje, no hará falta esta línea
   }
   function onSearch(ciudad) {
     //Llamado a la API del clima
-    if (ciudad === '') alert('Debes introducir una ciudad');
+    if (ciudad === '') {
+      setNotificacion({mensaje: "Debes introducir una ciudad", mostrar: true});
+      return;
+    }
     else 
+    setNotificacion({mensaje: `Buscando "${ciudad}"...`, mostrar: true})
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
-          if (cities.some((elem) => elem.name === recurso.name)) alert(`¡Ya hay tarjeta de ${recurso.name}!`);
+          if (cities.some((elem) => elem.name === recurso.name)) setNotificacion({mensaje: `¡Ya hay tarjeta de ${recurso.name}!`, mostrar: true});
           else {
             const ciudad = {
               min: Math.round(recurso.main.temp_min),
@@ -39,9 +48,11 @@ function App() {
               pais: recurso.sys.country
             };
             setCities(oldCities => [...oldCities, ciudad]);
+            setNotificacion({...notificacion, mostrar: false})
           }
         } else {
-          alert("Ciudad no encontrada");
+          setNotificacion({mensaje: `No se encontró la ciudad "${ciudad}"`, mostrar: true});
+          return;
         }
       });
   }
@@ -63,12 +74,17 @@ function App() {
         path='/about'
         component={About}
       />
-      <div className={style.cards}>
-        <Route 
-          exact path='/'
-          render={() => <Cards cities={cities} onClose={onClose} />}
-        />
-      </div>
+      <Route 
+        exact path='/'
+        render={() => (
+          <div className={style.cards}>
+            { (notificacion.mostrar) 
+            ? <Notificacion mensaje={notificacion.mensaje} /> 
+            : null }
+            <Cards cities={cities} onClose={onClose} setNotificacion={setNotificacion}/>
+          </div>
+        )}
+      />
       <Route
         exact path='/ciudad/:ciudadId'
         render={({match}) => <Ciudad

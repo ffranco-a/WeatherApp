@@ -1,5 +1,5 @@
 .container {
-    margin: 30px auto 0 auto;
+    margin: 30px auto auto auto;
     padding: 10px;
     background-color: transparent;
     backdrop-filter: blur(5px);

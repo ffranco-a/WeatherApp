@@ -6,11 +6,11 @@ import style from '../components/Nav.module.css';
 function Nav({onSearch}) {
   return (
     <div className={style.navBar}>
-      {/* <Link to='/'>
-        <img src={Logo} alt="Logo Henry" />
-      </Link> */}
       <Link to='/'>
         <span className={style.navButton}>Weather App</span>
+      </Link>
+      <Link to='/'>
+        <button className={style.navButtonMobile}>Home</button>
       </Link>
       <NavLink to='/about' activeClassName={style.active}>
         <span className={style.navButton}>About</span>
@@ -20,6 +20,9 @@ function Nav({onSearch}) {
           onSearch={onSearch}
         />
       </div>
+      <NavLink to='/about' activeClassName={`${style.active} ${style.info}`}>
+        <button className={style.navButtonMobile}>i</button>
+      </NavLink>
     </div>
   );
 };

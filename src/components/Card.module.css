@@ -1,4 +1,5 @@
 .card {
+    z-index: 0;
     margin: 10px 20px;
     border: 2px outset #b0e5ff40;
     position: relative;
@@ -28,7 +29,7 @@
 
 .close {
     transform: rotate(45deg);
-    position: fixed;
+    position: absolute;
     top: 5px;
     right: 5px;
     width: 23px;

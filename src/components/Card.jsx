@@ -19,7 +19,7 @@ export default function Card({temp, min, max, name, id, img, onClose}) {
           <div>Max {max}ºC</div>
           <div>Min {min}ºC</div>
         </div>
-        <img src={`http://openweathermap.org/img/wn/${img}@2x.png`} alt=""/>
+        <img src={`https://openweathermap.org/img/wn/${img}@2x.png`} alt=""/>
       </div>
     </Link>
   </div>)

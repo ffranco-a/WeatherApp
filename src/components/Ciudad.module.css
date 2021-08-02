@@ -2,11 +2,11 @@
     margin: 40px auto auto auto;
     border: 2px outset #50c5ff33;
     position: relative;
-    border-radius: 28px 28px 80px 28px;
+    border-radius: 20px 28px 80px 28px;
     box-shadow: 12px 7px 10px #20507014;
     width: 40vw;
     min-width: 500px;
-    height: 40vh;
+    /* height: 40vh; */
     min-height: 400px;
     padding: 20px;
     color: #333;
@@ -60,9 +60,8 @@
     align-items: center;
     justify-content: center;
 
-    left: 5px;
+    left: 3.5px;
     top: 5px;
-    bottom: 5px;
     border: 2px outset #b0e5ff60;
 
     height: 40px;
@@ -78,7 +77,7 @@
 }
 
 .goBack:hover {
-    background-color: #1c87ae25;
+    background-color: #1c87ae35;
     transition: background-color 0.2s;
 }
 
@@ -89,12 +88,6 @@
     justify-content: space-around;
     align-items: center;
 }
-
-/* @media (max-width:500px) {
-    .info {
-        padding-right: 10vw;
-    }
-} */
 
 .error {
     padding: 20px;

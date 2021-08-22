@@ -10,33 +10,46 @@ import Notificacion from '../components/Notificacion.jsx';
 
 function App() {
   const [cities, setCities] = useState([]);
-  const [notificacion, setNotificacion] = useState({mensaje: "Agregá una ciudad ↑", mostrar: true});
+  const [notificacion, setNotificacion] = useState({mensaje: "Agregá ciudades ↑", mostrar: true, iteracion: 7, opacity: 1, fill: "initial"});
+
+  // var timeoutId;
 
   function onClose(id) {
     setCities(oldCities => oldCities.filter(c => c.id !== id));
-    setNotificacion({...notificacion, mostrar: false}); // ← Solo una manera de limpiar la pantalla una vez que le usuarie interactue... una vez que aprenda a cronometrar la notifiación para que desaparezca automáticamente según el mensaje, no hará falta esta línea
+    // setNotificacion({...notificacion, mostrar: false}); // ← Solo una manera de limpiar la pantalla una vez que le usuarie interactue... una vez que aprenda a cronometrar la notifiación para que desaparezca automáticamente según el mensaje, no hará falta esta línea
+    // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 2500)
   }
   function onSearch(ciudad) {
     //Llamado a la API del clima
+    // if (timeoutId) clearTimeout(timeoutId);
     if (ciudad === '') {
-      setNotificacion({mensaje: "Debes introducir una ciudad", mostrar: true});
+      // timeoutId = setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3500)
+      setNotificacion({mensaje: "Debes introducir el nombre de una ciudad", mostrar: true, iteracion: 8, fill: "forwards"});
+      setTimeout(() => setNotificacion({...notificacion, mostrar: false, opacity: 1, fill: "initial"}), 4200)
       return;
     }
     else 
     setNotificacion({mensaje: `Buscando "${ciudad}"...`, mostrar: true})
+    // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3000)
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
-          if (cities.some((elem) => elem.name === recurso.name)) setNotificacion({mensaje: `¡Ya hay tarjeta de ${recurso.name}!`, mostrar: true});
+          if (cities.some((elem) => elem.name === recurso.name)) {
+            // if (timeoutId) clearTimeout(timeoutId);
+            // timeoutId = setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3000)
+            setNotificacion({mensaje: `¡Ya hay tarjeta de ${recurso.name}!`, mostrar: true, iteracion: 8, opacity: 0});
+            setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 4200)
+            // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3500)
+          } 
           else {
             const ciudad = {
-              min: Math.round(recurso.main.temp_min),
-              max: Math.round(recurso.main.temp_max),
+              min: Math.floor(recurso.main.temp_min),
+              max: Math.ceil(recurso.main.temp_max),
               img: recurso.weather[0].icon,
               id: recurso.id,
-              wind: recurso.wind.speed,
-              temp: Math.round(recurso.main.temp),
+              // wind: recurso.wind.speed, // ← actualmente en desuso
+              temp: recurso.main.temp.toFixed(1),
               name: recurso.name,
               weather: recurso.weather[0].main,
               weather2: recurso.weather[0].description,
@@ -51,7 +64,10 @@ function App() {
             setNotificacion({...notificacion, mostrar: false})
           }
         } else {
-          setNotificacion({mensaje: `No se encontró la ciudad "${ciudad}"`, mostrar: true});
+          // if (timeoutId) clearTimeout(timeoutId);
+          setNotificacion({mensaje: `No se encontró la ciudad "${ciudad}"`, mostrar: true, iteracion: 7, opacity: 1});
+          // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3500)
+          // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3500)
           return;
         }
       });
@@ -63,7 +79,7 @@ function App() {
     } else {
       return null;
     }
-  }
+  } // setNotificacion={setNotificacion}
   return (
     <div className={style.body}>
       <Route
@@ -79,12 +95,12 @@ function App() {
         render={() => (
           <div className={style.cards}>
             { (notificacion.mostrar) 
-            ? <Notificacion mensaje={notificacion.mensaje} /> 
+            ? <Notificacion mensaje={notificacion.mensaje} iteracion={notificacion.iteracion} opacity={notificacion.opacity} fill={notificacion.fill} /> 
             : null }
-            <Cards cities={cities} onClose={onClose} setNotificacion={setNotificacion}/>
+            <Cards cities={cities} onClose={onClose} setNotificacion={setNotificacion} /> 
           </div>
         )}
-      />
+      /> 
       <Route
         exact path='/ciudad/:ciudadId'
         render={({match}) => <Ciudad

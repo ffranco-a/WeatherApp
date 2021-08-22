@@ -1,88 +1,107 @@
 .card {
-    z-index: 0;
-    margin: 10px 20px;
-    border: 2px outset #b0e5ff40;
-    position: relative;
-    border-radius: 18px 18px 64px 18px;
-    box-shadow: 10px 5px 5px #2572;
-    width: 240px;
-    padding: 20px;
-    color: #333;
-    text-align: center;
-    background-color: #ffffff30;
-    backdrop-filter: blur(4px);
-    transition: background-color 2s ease-out;
+  z-index: 0;
+  margin: 10px 20px;
+  border: 2px outset #b0e5ff40;
+  position: relative;
+  border-radius: 18px 18px 64px 18px;
+  box-shadow: 10px 5px 5px #2572;
+  width: 240px;
+  padding: 20px;
+  color: #333;
+  text-align: center;
+  background-color: #ffffff30;
+  backdrop-filter: blur(4px);
+  transition: background-color 2s ease-out;
+  animation: fadeIn;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.0, 0.0, 0.1, 1.0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card::after {
+  transition: 1s;
 }
 
 .card:hover {
-    background-color: #fff8;
-    transition: background-color 0.3s;
+  background-color: #fff8;
+  transition: background-color 0.3s;
 }
 
 .card a {
-    color: #333;
+  color: #333;
 }
 
 .card a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .close {
-    transform: rotate(45deg);
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 23px;
-    height: 23px;
-    border: none; 
-    border-radius: 15px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    color: #ff4b4b60;
-    background-color: #fd000020;
-    transition: background-color 1s ease-out, color 1s;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 23px;
+  height: 23px;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #ff4b4b60;
+  background-color: #fd000020;
+  transition: background-color 1s ease-out, color 1s;
 }
 
 .close:hover {
-    background-color: #fd000050;
-    color: #80252580;
-    transition: background-color 0.3s;
+  background-color: #fd000050;
+  color: #80252580;
+  transition: background-color 0.3s;
 }
 
-.close:active, close:focus{
-    outline: none
+.close:active,
+close:focus {
+  outline: none;
 }
 
 .header {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .temp {
-    color: #555;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100px;
-    width: 50%;
-
+  color: #555;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100px;
+  width: 50%;
 }
 
 .minMax {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .temp img {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    background-color: #28b2;
-    backdrop-filter: blur(0);
-    border-radius: 100%;
-    border: 0.1px inset #6cf3;
-    box-shadow: 1px 1px 4px #fffa, -1px -1px 4px #0434;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background-color: #28b2;
+  backdrop-filter: blur(0);
+  border-radius: 100%;
+  border: 0.1px inset #6cf3;
+  box-shadow: 1px 1px 4px #fffa, -1px -1px 4px #0434;
 }

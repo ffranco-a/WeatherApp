@@ -25,7 +25,7 @@ export default function Ciudad({city}) {
                             <div>Viento: {city.wind} km/h</div>
                         </div>
                         <div className={style.containerIcon}>
-                            <img className={style.icon} src={`http://openweathermap.org/img/wn/${city.img}@2x.png`} alt={city.weather} />
+                            <img className={style.icon} src={`https://openweathermap.org/img/wn/${city.img}@2x.png`} alt={city.weather} />
                         </div>
                     </div>
             </div>

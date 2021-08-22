@@ -12,6 +12,30 @@
     border-radius: 99px;
     backdrop-filter: blur(15px);
     border: 2px outset #FFF2;
+    animation: fade;
+    animation-duration: 0.5s;
+    animation-direction: alternate;
+    /* animation: notif;
+    animation-duration: 0.55s;
+    animation-iteration-count: 3.5;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in; */
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0,75;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 500px) {

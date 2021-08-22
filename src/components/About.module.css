@@ -6,6 +6,9 @@
     border-radius: 25px;
     border: 2px outset #b0e5ff40;
     max-width: 700px;
+    animation: fadeIn;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
 }
 
 .about {
@@ -19,6 +22,18 @@
     border-radius: 20px;
     border: 2px inset #b0e5ff40;
     box-shadow: 1px 1px 4px #fff5, -1px -1px 4px #0434;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .about > footer {

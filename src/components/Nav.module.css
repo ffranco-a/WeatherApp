@@ -19,6 +19,12 @@
     border-bottom: 2px solid #FFFFFF08;
 }
 
+@supports not (backdrop-filter: blur(10px)) {
+  .navBar {
+    background-color: #2a8abd;
+  }
+}
+
 .navButton {
     font-size: 20px;
     color: white;
@@ -79,8 +85,8 @@
     }
 
     .search {
-        position: relative;
-        right: 0;
+        position: relative;        
+        right: 10px;
         width: 60vw;
     }
 
@@ -93,30 +99,31 @@
         display: none;
     }
 
+    svg {
+      vertical-align:baseline;
+    }
+
     .navButtonMobile {
+      font-size: 1.4rem;
         color: white;
-        font-weight: bold;
         display: initial;
         width: max-content;
-        min-width: 1.8rem;
-        height: 1.8rem;
-        margin: 0;
+        min-width: 2rem;
+        height: 2rem;
+        /* margin: 0; */
         position: relative;
-        border:none;
-        border-radius: 99px;
+        border: none;
+        border-radius: 999px;
         background-color: transparent;
     }
 
-    .navButtonMobile a:hover {
+    .navBar a:hover {
         border-radius: 99px;
     }
 
     .navBar a {
-        margin: 0;
-    }
-
-    .info a {
-        font-style: italic;
+        /* margin: 0; */
+        border-radius: 99px;
     }
 }
 

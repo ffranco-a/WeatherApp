@@ -24,7 +24,7 @@ function App() {
     // if (timeoutId) clearTimeout(timeoutId);
     if (ciudad === '') {
       // timeoutId = setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3500)
-      setNotificacion({mensaje: "Debes introducir el nombre de una ciudad", mostrar: true, iteracion: 8, fill: "forwards"});
+      setNotificacion({mensaje: "Debes introducir el nombre de una ciudad", mostrar: true, iteracion: 8, opacity: 0});
       setTimeout(() => setNotificacion({...notificacion, mostrar: false, opacity: 1, fill: "initial"}), 4200)
       return;
     }
@@ -48,7 +48,8 @@ function App() {
               max: Math.ceil(recurso.main.temp_max),
               img: recurso.weather[0].icon,
               id: recurso.id,
-              // wind: recurso.wind.speed, // ← actualmente en desuso
+              wind: recurso.wind.speed,
+              direction: recurso.wind.deg,
               temp: recurso.main.temp.toFixed(1),
               name: recurso.name,
               weather: recurso.weather[0].main,

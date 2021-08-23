@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar.jsx';
 import { Link, NavLink } from 'react-router-dom';
 import style from '../components/Nav.module.css';
+import { VscHome, VscInfo } from "react-icons/vsc";
 
 function Nav({onSearch}) {
   return (
@@ -10,10 +11,10 @@ function Nav({onSearch}) {
         <span className={style.navButton}>Weather App</span>
       </Link>
       <Link to='/'>
-        <button className={style.navButtonMobile}>Home</button>
+        <button className={style.navButtonMobile}><VscHome /></button>
       </Link>
       <NavLink to='/about' activeClassName={style.active}>
-        <span className={style.navButton}>About</span>
+        <span className={style.navButton}>Acerca de</span>
       </NavLink>
       <div className={style.search}>
         <SearchBar
@@ -21,7 +22,7 @@ function Nav({onSearch}) {
         />
       </div>
       <NavLink to='/about' activeClassName={`${style.active} ${style.info}`}>
-        <button className={style.navButtonMobile}>i</button>
+        <button className={style.navButtonMobile}><VscInfo /></button>
       </NavLink>
     </div>
   );

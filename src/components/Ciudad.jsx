@@ -1,13 +1,14 @@
 import React from "react";
 import style from "./Ciudad.module.css";
 import { Link } from "react-router-dom";
+import { VscTriangleDown, VscArrowLeft } from "react-icons/vsc";
 
 export default function Ciudad({city}) {
     if (city !== null) return (
         <div className={style.ciudad}>
                 <div>
                     <Link to="/">
-                        <button className={style.goBack}>←</button>
+                        <button className={style.goBack}><VscArrowLeft /></button>
                     </Link>
                     <div className={style.title}>
                         <h1>{city.name}, {city.pais}</h1>
@@ -22,7 +23,7 @@ export default function Ciudad({city}) {
                             <div>Clima: {city.weather} ({city.weather2})</div>
                             <div>Nubosidad: {city.clouds}%</div>
                             <div>Humedad: {city.humedad}%</div>
-                            <div>Viento: {city.wind} km/h</div>
+                            <div>Viento: {city.wind} m/s <VscTriangleDown style={{transform: `rotate(${city.direction}deg) scale(0.5, 2)`}}/></div>
                         </div>
                         <div className={style.containerIcon}>
                             <img className={style.icon} src={`https://openweathermap.org/img/wn/${city.img}@2x.png`} alt={city.weather} />

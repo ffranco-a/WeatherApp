@@ -38,6 +38,12 @@
   }
 }
 
+@supports not (backdrop-filter: blur(10px)) {
+  .notificacion {
+    background-color: #2a8abd85;
+  }
+}
+
 @media (max-width: 500px) {
     .notificacion {
         z-index: 2;

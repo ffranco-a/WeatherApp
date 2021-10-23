@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
+
+//? Components
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
-import style from '../components/Style.module.css';
-import { Route } from 'react-router-dom';
 import About from '../components/About.jsx';
 import Ciudad from '../components/Ciudad.jsx';
-import Notificacion from '../components/Notificacion.jsx';
+import Notification from '../components/Notification.jsx';
 
+//? Module CSS
+import style from '../components/Style.module.css';
 
 function App() {
+  //* Cities state where all city cards/info is storaged
   const [cities, setCities] = useState([]);
+
+  //* Notification state where information about server is displayed to the user
   const [notificacion, setNotificacion] = useState({mensaje: "Agregá ciudades ↑", mostrar: true, iteracion: 7, opacity: 1, fill: "initial"});
 
   // var timeoutId;
 
   function onClose(id) {
-    setCities(oldCities => oldCities.filter(c => c.id !== id));
+    setCities(oldCities => oldCities.filter(city => city.id !== id));
     // setNotificacion({...notificacion, mostrar: false}); // ← Solo una manera de limpiar la pantalla una vez que le usuarie interactue... una vez que aprenda a cronometrar la notifiación para que desaparezca automáticamente según el mensaje, no hará falta esta línea
     // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 2500)
   }
@@ -31,7 +37,7 @@ function App() {
     else 
     setNotificacion({mensaje: `Buscando "${ciudad}"...`, mostrar: true})
     // setTimeout(() => setNotificacion({...notificacion, mostrar: false}), 3000)
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric&lang=sp`)
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
@@ -96,7 +102,7 @@ function App() {
         render={() => (
           <div className={style.cards}>
             { (notificacion.mostrar) 
-            ? <Notificacion mensaje={notificacion.mensaje} iteracion={notificacion.iteracion} opacity={notificacion.opacity} fill={notificacion.fill} /> 
+            ? <Notification mensaje={notificacion.mensaje} iteracion={notificacion.iteracion} opacity={notificacion.opacity} fill={notificacion.fill} /> 
             : null }
             <Cards cities={cities} onClose={onClose} setNotificacion={setNotificacion} /> 
           </div>

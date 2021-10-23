@@ -81,6 +81,10 @@
     align-items: center;
 }
 
+.forecast {
+  display: flex;
+}
+
 .error {
     padding: 20px;
     text-align: center;

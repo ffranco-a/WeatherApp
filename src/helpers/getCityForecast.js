@@ -1,10 +1,13 @@
-export default function getCityForecast (lat, lon) {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=-31.41&lon=-64.18&exclude=hourly,minutely&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric&lang=sp`
+export default async function getCityForecast (lat, lon) {
+  let res = await fetch(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat ? lat : '-31.41'}&lon=${lon ? lon : '-64.18'}&exclude=hourly,minutely&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric&lang=sp`
   )
-    .then((res) => res.json())
-    .then((info) => {
-      console.log(info);
-      return info;
-    });
+  let forecast = await res.json();
+  console.log(forecast);
+  return forecast;
+    // .then((res) => res.json())
+    // .then((info) => {
+    //   console.log(info);
+    //   return info;
+    // });
 };

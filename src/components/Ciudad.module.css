@@ -81,8 +81,24 @@
     align-items: center;
 }
 
+.clima {
+  text-transform: capitalize;
+}
+
 .forecast {
   display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  margin: 10px;
+  padding: 5px;
+  width: 10%;
+  background-color: #ffffff50;
+  border: 2px outset #50c5ff33;
+  border-radius: 10px;
+
+
 }
 
 .error {

@@ -8,11 +8,22 @@ export default function Ciudad({ city }) {
 
   const [forecast, setForecast] = useState({});
 
-  const getForecast = async () => {
-    let daily = getCityForecast(city?.latitud, city?.longitud)
-    console.log('daily: ', daily);
-    setForecast(daily);
-  }
+  useEffect(() => {
+    // setForecast(await getCityForecast());
+
+    async function getForecast() {
+      const daily = await getCityForecast(city?.latitud, city?.longitud);
+      console.log('daily: ', daily)
+      setForecast(daily);
+    }
+    getForecast();
+  }, [city?.latitud, city?.longitud]);
+
+  // const getForecast = async () => {
+  //   let daily = getCityForecast(city?.latitud, city?.longitud)
+  //   console.log('daily: ', daily);
+  //   setForecast(daily);
+  // }
   // getForecast();
 
   if (city === null)
@@ -43,7 +54,7 @@ export default function Ciudad({ city }) {
             </h5>
             <div className={style.info}>
               <div>Sensación térmica: {city?.sensacionTermica}ºC</div>
-              <div>
+              <div className={style.clima}>
                 Clima: {city?.weather} ({city?.weather2})
               </div>
               <div>Nubosidad: {city?.clouds}%</div>
@@ -60,13 +71,15 @@ export default function Ciudad({ city }) {
         <div className={style.forecast}>
           {forecast?.hasOwnProperty('daily') ? (
             forecast?.daily.map((day, i) => (
-              <div>
-                {day.weather.description}
+              <div key={i} className={style.day}>
+                <div className={style.clima}>
+                  {day.weather[0].description}
+                </div>
               </div>
             ))
           ) : (
-            <div>
-              Cargando
+            <div className={style.error}>
+              Cargando pronóstico semanal...
             </div>
           )}
         </div>

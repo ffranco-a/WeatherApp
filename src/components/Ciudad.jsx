@@ -9,22 +9,13 @@ export default function Ciudad({ city }) {
   const [forecast, setForecast] = useState({});
 
   useEffect(() => {
-    // setForecast(await getCityForecast());
-
     async function getForecast() {
       const daily = await getCityForecast(city?.latitud, city?.longitud);
       console.log('daily: ', daily)
       setForecast(daily);
     }
     getForecast();
-  }, [city?.latitud, city?.longitud]);
-
-  // const getForecast = async () => {
-  //   let daily = getCityForecast(city?.latitud, city?.longitud)
-  //   console.log('daily: ', daily);
-  //   setForecast(daily);
-  // }
-  // getForecast();
+  }, [city]);
 
   if (city === null)
     return (

@@ -1,0 +1,28 @@
+.pronosticoHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekday {
+  margin-top: 5px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.clima {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.temp {
+  text-align: center;
+  font-size: 0.5em;
+  height: 30%;
+}
+
+.minMax {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}

@@ -1,1 +1,5 @@
 /node_modules
+package-lock.json
+exampleofanApiOneCall.json
+setCordoba&setPronostico.js
+.env

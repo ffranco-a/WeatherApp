@@ -1,7 +1,7 @@
 > Franco Aparicio
 # Weather App
 
-![captura](./src/img/captura2.png)
+![captura](./src/img/capture2.png)
 
 Techs: Javascript | HTML | CSS | React
 
@@ -28,4 +28,4 @@ enjoy!
 
 JULIO / AGOSTO — 2021
 
-![captura2](./src/img/captura1.png)
+![captura2](./src/img/capture1.png)

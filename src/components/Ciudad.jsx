@@ -17,7 +17,6 @@ function Ciudad({ city }) {
   useEffect(() => {
     async function getForecast() {
       const daily = await getCityForecast(city?.latitud, city?.longitud);
-      console.log('daily: ', daily);
       setForecast(daily);
     }
     getForecast();

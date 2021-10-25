@@ -1,11 +1,12 @@
 .container {
-    margin: 30px auto auto auto;
+    margin: 20px auto auto auto;
     padding: 10px;
     background-color: #28649520;
     backdrop-filter: blur(10px);
     border-radius: 25px;
     border: 2px outset #b0e5ff40;
     max-width: 750px;
+    min-width: 300px;
     animation: fadeIn;
     animation-duration: 0.7s;
     animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
@@ -22,6 +23,18 @@
     border-radius: 20px;
     border: 2px inset #b0e5ff40;
     box-shadow: 1px 1px 4px #fff5, -1px -1px 4px #0434;
+}
+
+.about a, .a {
+  color: white;
+  text-decoration: underline;
+  transition: color 0.2s, text-decoration 0.5s;
+  cursor: pointer;
+}
+
+.about a:hover, .a:hover {
+  color: #ade2ff;
+  text-decoration: none;
 }
 
 @keyframes fadeIn {
@@ -46,8 +59,24 @@
 }
 
 .about > footer {
-    font-size: 15px;
-    font-style: italic;
+  font-size: 1rem;
+  font-style: italic;
+  position: relative;
+}
+
+.networks {
+  font-size: 1.5rem;
+  vertical-align: bottom;
+}
+
+.tooltip {
+  position: absolute;
+  top: 1rem;
+  /* width: 100%; */
+  right: 30%;
+  left: 30%;
+  background: #286495;
+  border-radius: 99px;
 }
 
 .volver {
@@ -82,4 +111,18 @@
 
 .volver:active, .volver:focus{
     outline: none
+}
+
+@media (max-width: 500px) {
+  .about {
+    font-size: .9rem;
+  }
+
+  .about footer {
+    font-size: .8rem;
+  }
+
+  .networks {
+    font-size: 1.2rem;
+  }
 }

@@ -186,4 +186,15 @@
     bottom: 0.1rem;
     right: 0;
   }
+
+  .forecast {
+    margin-top: 10px;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .day {
+    width: 50%;
+  }
 }

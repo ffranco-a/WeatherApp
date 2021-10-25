@@ -26,16 +26,3 @@
   justify-content: space-around;
   text-align: center;
 }
-
-@media (max-width: 500px) {
-  .forecast {
-    margin-top: 10px;
-    overflow-x: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .day {
-    width: 50%;
-  }
-}

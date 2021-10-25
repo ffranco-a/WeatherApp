@@ -1,5 +1,5 @@
 .ciudad {
-    margin: 40px auto auto auto;
+    margin: 3vh auto 3vh auto;
     border: 2px outset #50c5ff33;
     position: relative;
     border-radius: 20px 28px 80px 28px;
@@ -88,20 +88,69 @@
 .forecast {
   display: flex;
   justify-content: space-between;
+  overflow-x: auto;
 }
 
 .day {
+  position: relative;
   margin: 10px;
-  padding: 5px;
-  width: 10%;
+  padding: 5px 10px;
+  width: 12%;
+  min-width: max-content;
   background-color: #ffffff50;
   border: 2px outset #50c5ff33;
-  border-radius: 10px;
+  border-radius: 15px 33px 15px 10px;
+  color: #555;
+  font-weight: 500;
+  text-align: left;
+  animation: fadeIn;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0, 0, 0.1, 1);
+}
 
 
+.weekday {
+  margin-top: 5px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.climaPronostico {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.pronosticoHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day img {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 5px;
+  background-color: #28b2;
+  backdrop-filter: blur(0);
+  border-radius: 100%;
+  border: 0.1px inset #6cf3;
+  box-shadow: 1px 1px 4px #fffa, -1px -1px 4px #0434;
+}
+
+.temp {
+  text-align: center;
+  font-size: 0.5em;
+  height: 30%;
+}
+
+.minMax {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .error {
+  width: 100%;
     padding: 20px;
     text-align: center;
     font-size: 25px;
@@ -167,5 +216,16 @@
         position: relative;
         bottom: .1rem;
         right: 0;
+    }
+
+    .forecast {
+      margin-top: 10px;
+      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .day {
+      width: 50%;
     }
 }

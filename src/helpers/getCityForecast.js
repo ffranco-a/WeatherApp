@@ -3,11 +3,5 @@ export default async function getCityForecast (lat, lon) {
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat ? lat : '-31.41'}&lon=${lon ? lon : '-64.18'}&exclude=hourly,minutely&appid=4ae2636d8dfbdc3044bede63951a019b&units=metric&lang=sp`
   )
   let forecast = await res.json();
-  console.log(forecast);
   return forecast;
-    // .then((res) => res.json())
-    // .then((info) => {
-    //   console.log(info);
-    //   return info;
-    // });
 };

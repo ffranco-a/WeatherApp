@@ -5,21 +5,20 @@ import { VscTriangleDown, VscArrowLeft } from 'react-icons/vsc';
 import getCityForecast from '../helpers/getCityForecast';
 
 export default function Ciudad({ city }) {
-
   const [forecast, setForecast] = useState({});
 
   useEffect(() => {
     async function getForecast() {
       const daily = await getCityForecast(city?.latitud, city?.longitud);
-      console.log('daily: ', daily)
+      console.log('daily: ', daily);
       setForecast(daily);
     }
     getForecast();
   }, [city]);
 
-  if (city === null)
+  if (city !== null)
     return (
-      <div>
+      <div className={style.container}>
         <div className={style.ciudad}>
           <Link to='/'>
             <button className={style.goBack}>
@@ -55,23 +54,42 @@ export default function Ciudad({ city }) {
               </div>
             </div>
             <div className={style.containerIcon}>
-              <img className={style.icon} src={`https://openweathermap.org/img/wn/${city?.img}@2x.png`} alt={city?.weather} />
+              <img className={style.icon} src={`https://openweathermap.org/img/wn/${city?.img}@2x.png`} alt='' />
             </div>
           </div>
         </div>
         <div className={style.forecast}>
           {forecast?.hasOwnProperty('daily') ? (
-            forecast?.daily.map((day, i) => (
+            forecast?.daily.slice(1).map((day, i) => (
               <div key={i} className={style.day}>
-                <div className={style.clima}>
-                  {day.weather[0].description}
+                <div>
+                  <div className={style.pronosticoHeader}>
+                    <div>
+                      <div className={style.weekday}>{new Date(day.dt * 1000).toLocaleDateString('es', { weekday: 'long' })}</div>
+                      <div className={style.climaPronostico}>{day.weather[0].description}</div>
+                    </div>
+                    <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt={day.weather[0].description} />
+                  </div>
+                  <div className={style.temp}>
+                    <h3>{day.temp.day.toFixed(1)} ºC</h3>
+                  </div>
+                  <div className={style.minMax}>
+                    <div>
+                      Max
+                      <br />
+                      {day.temp.max.toFixed(1)} ºC
+                    </div>
+                    <div>
+                      Min
+                      <br />
+                      {day.temp.min.toFixed(1)} ºC
+                    </div>
+                  </div>
                 </div>
               </div>
             ))
           ) : (
-            <div className={style.error}>
-              Cargando pronóstico semanal...
-            </div>
+            <div className={style.error}>Cargando pronóstico semanal...</div>
           )}
         </div>
       </div>

@@ -5,7 +5,7 @@
     overflow-x: hidden;
     width: 100vw;
     height: 100vh;
-    padding: 100px 10% 0;
+    padding: 100px 0 0 0;
     background-image: url('../img/gong-ty-5AEFIuud6XI-unsplash.jpg');
     background-position: center;
     background-size: cover;
@@ -27,7 +27,7 @@
 .cards {
     position: relative;
     z-index: 0;
-    margin-top: 60px;
+    margin: 60px 10% 0;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

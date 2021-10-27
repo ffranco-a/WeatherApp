@@ -28,16 +28,16 @@ function About() {
           </button>
         </Link>
         <div>
-          <i>¿Quieres saber qué temperatura hace en tu ciudad y en cualquier parte del mundo?</i> Escribe los nombres de las ciudades que quieras en
+          <b>¿Quieres saber qué temperatura hace en tu ciudad y en cualquier parte del mundo?</b> Escribe los nombres de las ciudades que quieras en
           la barra de búsqueda y se generará una tarjeta por cada una de ellas.{' '}
-          <i>¿Quieres ver más detalles, y el pronóstico extendido de la semana?</i> Clickea en cualquiera de las tarjetas para ampliar la información
+          <b>¿Quieres ver más detalles, y el pronóstico extendido de la semana?</b> Clickea en cualquiera de las tarjetas para ampliar la información
           del clima de esa ciudad. — WeatherApp es una aplicación de página única (React SPA) creada por Franco Aparicio, alumne del bootcamp{' '}
           <a href='https://www.soyhenry.com'>soyHenry</a>. La aplicación brinda información del clima en tiempo real (extraída de{' '}
           <a href='https://openweathermap.org/api'>API de openweathermap</a>) de cualquier ciudad del mundo. <br />
           <hr />
-          <i>Would you like to know how's the weather like in your city? or any city in the world, actually!</i> Just type in their names in the
-          search bar above, and you'll get a card for each one of them showing the main information.{' '}
-          <i>Would you like to see more details, along with the nwxr week forecast?</i> Click in any of your city-cards to expand the weather
+          <b>Would you like to know how's the weather like in your city? or any city in the world, actually!</b> Just type in their names in the
+          search bar above, and you'll get a card for each one of them showing the main weather information.{' '}
+          <b>Would you like to see more details, along with the next week forecast?</b> Click in any of your city-cards to expand the weather
           information of that city. — WeatherApp is a React single-page app created by Franco Aparicio, student of{' '}
           <a href='https://www.soyhenry.com'>soyHenry</a>'s bootcamp. The app offers real-time weather information (withdrawn from{' '}
           <a href='https://openweathermap.org/api'>openweathermap's API</a>) of any city in the world.
@@ -58,6 +58,10 @@ function About() {
           <br />
           <a href='https://github.com/ffranco-a/' target='_blank' rel='noopener noreferrer'>
             <FaGithubSquare className={style.networks} /> github.com/ffranco-a/
+          </a>
+          <br />
+          <a href='https://github.com/ffranco-a/WeatherApp' target='_blank' rel='noopener noreferrer'>
+            {'{ WeatherApp repo }'}
           </a>
           <br />
           JULIO / AGOSTO — 2021

@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Card.module.css';
 import { Link } from 'react-router-dom';
 
-export default function Card({ temp, min, max, name, id, img, onClose }) {
+export default function Card({ temp, min, max, name, id, img, weather, onClose }) {
   // acá va tu código
 
   return (
@@ -12,7 +12,8 @@ export default function Card({ temp, min, max, name, id, img, onClose }) {
       </button>
       <Link to={`/ciudad/${id}`}>
         <div className={style.header}>
-          <h2> {name}</h2>
+          <h2>{name}</h2>
+          <span>{weather}</span>
         </div>
         <div className={style.temp}>
           <div>

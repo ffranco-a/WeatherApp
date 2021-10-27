@@ -86,8 +86,13 @@
 
 .forecast {
   display: flex;
-  justify-content: space-between;
-  overflow-x: auto;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* overflow-x: auto; */
+  max-width: 100%;
+  width: 80%;
+  min-width: min-content;
+  margin: 5vh auto 0;
 }
 
 .day {

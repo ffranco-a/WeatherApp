@@ -80,9 +80,12 @@ close:focus {
   outline: none;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
+.header span {
+  text-transform: capitalize;
+  /* font-style: italic; */
+  position: relative;
+  bottom: .5rem;
+  text-align: right; 
 }
 
 .temp {

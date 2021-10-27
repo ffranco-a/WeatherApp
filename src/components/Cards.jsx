@@ -14,6 +14,7 @@ export default function Cards({cities, onClose}) {
         min={elem.min}
         img={elem.img}
         temp={elem.temp}
+        weather={elem.weather2}
         onClose={onClose}>
       </Card>
     </div>)

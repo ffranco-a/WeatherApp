@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import style from './Ciudad.module.css';
 
@@ -13,6 +14,9 @@ import getCityForecast from '../helpers/getCityForecast';
 
 function Ciudad({ city }) {
   const [forecast, setForecast] = useState({});
+  
+  const history = useHistory();
+  if (!city) history.push('/');
 
   useEffect(() => {
     async function getForecast() {
@@ -22,8 +26,7 @@ function Ciudad({ city }) {
     getForecast();
   }, [city]);
 
-  if (city !== null)
-    return (
+  return (
       <div className={style.container}>
         <div className={style.ciudad}>
           <Link to='/'>
@@ -77,16 +80,6 @@ function Ciudad({ city }) {
         </div>
       </div>
     );
-  else {
-    return (
-      <div className={style.error}>
-        No se encontró la ciudad especificada
-        <Link to='/'>
-          <div>← Volver</div>
-        </Link>
-      </div>
-    );
-  }
 }
 
 export default Ciudad;

@@ -1,6 +1,6 @@
 > Franco Aparicio
 # Weather App
-
+### Deploy (try it yourself!): [Vercel](https://weather-app-ffranco-a.vercel.app)
 ![captura](./src/img/capture2.png)
 
 Techs: Javascript | HTML | CSS | React
